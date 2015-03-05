@@ -1,2 +1,5 @@
-# sikulix-client
-client fro sikulix2 REST interface
+# Sikulix Client
+client for sikulix2 REST interface
+
+
+WIP
