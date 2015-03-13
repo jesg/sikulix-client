@@ -31,63 +31,6 @@ class SikulixClient
     nil
   end
 
-  def files_exist(*paths)
-    resp = conn.request({
-                   :method => :post,
-                   :path => 'sikuli/file/exists',
-                   :headers => {'Content-Type' => 'application/json'},
-                   :body => paths.to_json})
-    resp.status == 200
-  end
-
-  def delete(path)
-    conn.request({
-                   :expects => [200],
-                   :method => :post,
-                   :path => 'sikuli/file/delete',
-                   :headers => {'Content-Type' => 'application/json'},
-                   :query => {:path => path}})
-    nil
-  end
-
-  def create_folder(path)
-    conn.request({
-                   :expects => [200],
-                   :method => :post,
-                   :path => 'sikuli/file/createFolder',
-                   :headers => {'Content-Type' => 'application/json'},
-                   :query => {:path => path}})
-    nil
-  end
-
-  def clean_folder(path)
-    conn.request({
-                   :expects => [200],
-                   :method => :post,
-                   :path => 'sikuli/file/cleanFolder',
-                   :headers => {'Content-Type' => 'application/json'},
-                   :query => {:path => path}})
-    nil
-  end
-
-  def copy_folder(source, dest)
-    conn.request({
-                   :expects => [200],
-                   :method => :post,
-                   :path => 'sikuli/file/copyFolder',
-                   :headers => {'Content-Type' => 'application/json'},
-                   :query => {:fromPath => source, :toPath => dest}})
-    nil
-  end
-
-  def upload_files(files, saveTo)
-    raise 'Not Implemented'
-  end
-
-  def download_file(source, dest)
-    raise 'Not Implemented'
-  end
-
   def click(image, timeout)
     conn.request({
                    :expects => [200],
